@@ -1,5 +1,5 @@
 # jycat
-[![Version](https://pypip.in/version/jycat/badge.svg)![Status](https://pypip.in/status/jycat/badge.svg)![Downloads](https://pypip.in/download/jycat/badge.svg)](https://pypi.python.org/pypi/jycat/)[![Build Status](https://travis-ci.org/lgfausak/jycat.svg?branch=master)](https://travis-ci.org/lgfausak/jycat)
+[![Version](https://pypip.in/version/jycat/badge.svg)![Status](https://pypip.in/status/jycat/badge.svg)![Downloads](https://pypip.in/download/jycat/badge.svg)](https://pypi.python.org/pypi/jycat/)[![Build Status](https://travis-ci.org/tacodata/jycat.svg?branch=master)](https://travis-ci.org/lgfausak/jycat)
 
 json yaml cat for kubernetes
 
