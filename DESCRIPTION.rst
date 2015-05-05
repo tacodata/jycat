@@ -1,9 +1,6 @@
 jycat
 =====
 
-`|Version|\ |Status|\ |Downloads| <https://pypi.python.org/pypi/jycat/>`__\ |Build
-Status|
-
 json yaml cat for kubernetes
 
 Summary

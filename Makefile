@@ -19,7 +19,7 @@ incver:
 pypi:
 	( cd config; make )
 	( grep -v '^__version__' $(VFILE); nv=`(cat $(VFILE); echo 'p = __version__.split(".")'; echo 'p[len(p)-1]=str(int(p[len(p)-1])+1)'; echo 'print ".".join(p)';)   | python`; echo '__version__ = "'$$nv'"'; echo $$nv > $(VNUM)) > $(TFILE); mv $(TFILE) $(VFILE)
-	pandoc -f markdown_github README.md -t rst -o DESCRIPTION.rst
+	echo 'make rst from md : pandoc -f markdown_github README.md -t rst -o DESCRIPTION.rst'
 	python setup.py sdist upload
 	git commit -m 'sync with pypi version: '`cat $(VNUM)` .
 	git push
