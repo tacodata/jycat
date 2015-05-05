@@ -75,17 +75,21 @@ def run():
     s_out = { "apiVersion":"v1beta3", "kind":"List", "items":[] }
 
     av = args.files
-    for i in range(len(av)):
-        i_file = None
-        if av[i] == '-':
-            i_file = sys.stdin
-        else:
-            i_file = open(av[i])
-        s_out['items'].append(yaml.load(i_file.read()))
+    if len(av) > 0:
+        for i in range(len(av)):
+            i_file = None
+            if av[i] == '-':
+                i_file = sys.stdin
+            else:
+                i_file = open(av[i])
+            s_out['items'].append(yaml.load(i_file.read()))
+    else:
+        logging.debug("no arguments specified, stdin assumed")
+        s_out['items'].append(yaml.load(sys.stdin))
 
     # if we are only messing with a single file...
     s = s_out
-    if len(av) == 1:
+    if len(av) < 2:
         s = s_out['items'][0]
 
     if args.output_type == 'yaml':
