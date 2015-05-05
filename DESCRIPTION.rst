@@ -1,22 +1,24 @@
 jycat
 =====
 
+`|Version|\ |Status|\ |Downloads| <https://pypi.python.org/pypi/jycat/>`__\ |Build
+Status|
+
 json yaml cat for kubernetes
 
 Summary
 -------
 
-| This program concats just like cat from unix does, except,
-| it takes as input json and yaml files. These json and yaml files must
-| be well formed. This program reads each file, converts internally to
-| a dictionary using yaml.load(), then adds that dictionary to a list
-| called 'items'. When all files are imported the resulting dictionary
-| is turned back into a yaml (or json) representation (with two added
-elements at
-| the top level for Kubernetes). If those files were Kubernetes pod,
-| replicationcontroller or service declarations, the resulting list is
-| the concatenation of those. This new list can be used to turn up/down
-| all of the listed resources at once.
+This program concats just like cat from unix does, except, it takes as
+input json and yaml files. These json and yaml files must be well
+formed. This program reads each file, converts internally to a
+dictionary using yaml.load(), then adds that dictionary to a list called
+'items'. When all files are imported the resulting dictionary is turned
+back into a yaml (or json) representation (with two added elements at
+the top level for Kubernetes). If those files were Kubernetes pod,
+replicationcontroller or service declarations, the resulting list is the
+concatenation of those. This new list can be used to turn up/down all of
+the listed resources at once.
 
 Usage
 -----
@@ -74,39 +76,31 @@ The top of the file will look like this (in yaml presentation):
     kind: List
     items:
 
-| Then, for each file that is concatenated, there are two spaces
-inserted before
-| each line, and the first line has - added (indicating an element of
-item).
+Then, for each file that is concatenated, there are two spaces inserted
+before each line, and the first line has - added (indicating an element
+of item).
 
 Examples
 --------
 
-| I initially wrote this to create encapsulated Kubernetes scripts that
-can
-| be launched with a single command. I found another use when the api
-was upgraded
-| from v1beta1 to v1beta3, there is a program called kube-version-change
-which converts
-| json from beta 1 to beta 3. It doesn't work with yaml. My scripts are
-all yaml,
-| so this was modified to convert from one to another. So, here is how
-you might update
-| a yaml from beta 1 to 3:
+I initially wrote this to create encapsulated Kubernetes scripts that
+can be launched with a single command. I found another use when the api
+was upgraded from v1beta1 to v1beta3, there is a program called
+kube-version-change which converts json from beta 1 to beta 3. It
+doesn't work with yaml. My scripts are all yaml, so this was modified to
+convert from one to another. So, here is how you might update a yaml
+from beta 1 to 3:
 
 ::
 
     jycat beta1.yaml -t json | kube-version-change | jycat - > beta3.yaml
 
-| In the previous example the yaml file is promoted to json, then the
-json is
-| processed by the kube-version-change go program, finally, jycat -
-converts the
-| imput back to yaml.
+In the previous example the yaml file is promoted to json, then the json
+is processed by the kube-version-change go program, finally, jycat -
+converts the imput back to yaml.
 
-| The next example shows how to 'package' more than one Kubernetes
-resource file
-| into a single file:
+The next example shows how to 'package' more than one Kubernetes
+resource file into a single file:
 
 ::
 
