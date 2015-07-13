@@ -72,7 +72,7 @@ def run():
         f.close()
 
     # here we go, start of program here
-    s_out = { "apiVersion":"v1beta3", "kind":"List", "items":[] }
+    s_out = { "apiVersion":"v1", "kind":"List", "items":[] }
 
     av = args.files
     if len(av) > 0:
