@@ -1,7 +1,7 @@
-jycat
+maas-util
 =====
 
-`|Version|\ |Status|\ |Downloads| <https://pypi.python.org/pypi/jycat/>`__\ |Build
+`|Version|\ |Status|\ |Downloads| <https://pypi.python.org/pypi/maas-util/>`__\ |Build
 Status|
 
 json yaml cat for kubernetes
@@ -25,7 +25,7 @@ Usage
 
 ::
 
-    usage: jycat.py [-h] [-p] [-t {json,yaml}]
+    usage: maas-util.py [-h] [-p] [-t {json,yaml}]
                     [-l {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [-s]
                     [files [files ...]]
 
@@ -43,8 +43,8 @@ Usage
                             Log level (DEBUG,INFO,WARNING,ERROR,CRITICAL) default
                             is: INFO
       -s, --save            save select command line arguments (default is always)
-                            in "/home/gfausak/.jycat.conf" file
-    jycat pod.yaml service.yaml replicationcontroller.yaml > /tmp/bigfile.yaml
+                            in "/home/gfausak/.maas-util.conf" file
+    maas-util pod.yaml service.yaml replicationcontroller.yaml > /tmp/bigfile.yaml
 
 Arguments
 ---------
@@ -58,7 +58,7 @@ Arguments
 -  --save, save current arguments to persistent file in home directory,
    this file will be read as if it came from the command line in
    subsequent invocations of this program. To remove it you have to
-   remove the ~/.jycat.conf file manually. Do this for making pretty
+   remove the ~/.maas-util.conf file manually. Do this for making pretty
    default, for example. the default is no save is done.
 -  files, this is the list of files to process. must have at least one.
    any one of the files can be a - dash indicating taking it from stdin.
@@ -93,10 +93,10 @@ from beta 1 to 3:
 
 ::
 
-    jycat beta1.yaml -t json | kube-version-change | jycat - > beta3.yaml
+    maas-util beta1.yaml -t json | kube-version-change | maas-util - > beta3.yaml
 
 In the previous example the yaml file is promoted to json, then the json
-is processed by the kube-version-change go program, finally, jycat -
+is processed by the kube-version-change go program, finally, maas-util -
 converts the imput back to yaml.
 
 The next example shows how to 'package' more than one Kubernetes
@@ -104,7 +104,7 @@ resource file into a single file:
 
 ::
 
-    jycat file1.yaml file2.yaml file3.yaml > package.yaml
+    maas-util file1.yaml file2.yaml file3.yaml > package.yaml
 
 The resulting file is passable to kubectl, like this:
 
@@ -120,8 +120,8 @@ which does about the same thing as this:
     kubectl create -f file2.yaml
     kubectl create -f file3.yaml
 
-.. |Version| image:: https://pypip.in/version/jycat/badge.svg
-.. |Status| image:: https://pypip.in/status/jycat/badge.svg
-.. |Downloads| image:: https://pypip.in/download/jycat/badge.svg
-.. |Build Status| image:: https://travis-ci.org/tacodata/jycat.svg?branch=master
-   :target: https://travis-ci.org/lgfausak/jycat
+.. |Version| image:: https://pypip.in/version/maas-util/badge.svg
+.. |Status| image:: https://pypip.in/status/maas-util/badge.svg
+.. |Downloads| image:: https://pypip.in/download/maas-util/badge.svg
+.. |Build Status| image:: https://travis-ci.org/tacodata/maas-util.svg?branch=master
+   :target: https://travis-ci.org/lgfausak/maas-util

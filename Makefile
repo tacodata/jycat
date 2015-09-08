@@ -1,4 +1,4 @@
-MODULE=jycat
+MODULE=maas-util
 TFILE=/tmp/make_$$.tmp
 VFILE=$(MODULE)/__init__.py
 VNUM=/tmp/vnum_$$.tmp

@@ -16,7 +16,7 @@ from os import path
 ##
 import re
 verstr='0.0.0'
-VERSIONFILE="jycat/__init__.py"
+VERSIONFILE="maas-util/__init__.py"
 verstrline = open(VERSIONFILE, "rt").read()
 VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
 mo = re.search(VSRE, verstrline, re.M)
@@ -32,7 +32,7 @@ with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='jycat',
+    name='maas-util',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -43,7 +43,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/tacodata/jycat',
+    url='https://github.com/tacodata/maas-util',
 
     # Author details
     author='Greg Fausak',
@@ -115,7 +115,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'jycat=jycat.jycat:run',
+            'maas-util=maas-util.maas-util:run',
         ],
     },
 )
