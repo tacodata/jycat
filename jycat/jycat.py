@@ -16,7 +16,7 @@ class SmartFormatter(argparse.HelpFormatter):
         return argparse.HelpFormatter._split_lines(self, text, width)
 
 def run():
-    loglevel = "INFO"
+    loglevel = "WARNING"
 
     home = expanduser("~")
     prog = os.path.basename(__file__)
