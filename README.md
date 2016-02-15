@@ -94,4 +94,3 @@ kubectl create -f file2.yaml
 kubectl create -f file3.yaml
 ```
 
-
