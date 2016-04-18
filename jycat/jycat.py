@@ -7,6 +7,7 @@ import yaml, json, sys, os, argparse, logging
 from os.path import expanduser
 import argparse_config
 
+
 class SmartFormatter(argparse.HelpFormatter):
 
     def _split_lines(self, text, width):
